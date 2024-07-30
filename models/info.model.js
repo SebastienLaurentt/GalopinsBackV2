@@ -1,7 +1,7 @@
 const moongoose = require ("mongoose");
 
 const InfoSchema = new moongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },

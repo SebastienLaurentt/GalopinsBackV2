@@ -11,7 +11,7 @@ module.exports.allInfos = async (req, res) => {
 
 module.exports.addInfo = async (req, res) => {
   const newInfo = new infoModel({
-    name: req.body.name,
+    title: req.body.title,
     date: req.body.date,
     description: req.body.description,
   });
@@ -39,7 +39,7 @@ module.exports.updateInfo = async (req, res) => {
     const updatedInfo = await infoModel.findByIdAndUpdate(
       req.params.id,
       {
-        name: req.body.name,
+        title: req.body.title,
         date: req.body.date,
         description: req.body.description,
       },
