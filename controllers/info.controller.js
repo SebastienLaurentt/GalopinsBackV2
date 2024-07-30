@@ -9,6 +9,16 @@ module.exports.allInfos = async (req, res) => {
   }
 };
 
+module.exports.getInfoById = async (req, res) => {
+  try {
+    const info = await infoModel.findById(req.params.id);
+    if (!info) return res.status(404).send("No item found");
+    return res.status(200).json(info);
+  } catch (err) {
+    return res.status(400).send("Error");
+  }
+};
+
 module.exports.addInfo = async (req, res) => {
   const newInfo = new infoModel({
     title: req.body.title,
