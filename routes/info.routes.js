@@ -7,4 +7,5 @@ router.post("/api/infos", addInfo);
 router.delete("/api/infos/:id", deleteInfo);
 router.put("/api/infos/:id", updateInfo);
 router.get("/api/infos/:id", getInfoById); 
+
 module.exports = router;
