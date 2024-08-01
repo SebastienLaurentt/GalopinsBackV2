@@ -1,6 +1,6 @@
-const moongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-const RandoSchema = new moongoose.Schema(
+const RandoSchema = new mongoose.Schema(
   {
     destination: {
       type: String,
@@ -22,10 +22,14 @@ const RandoSchema = new moongoose.Schema(
       type: String,
       required: true,
     },
+    images: {
+      type: [String], 
+      required: false,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = moongoose.model("Rando", RandoSchema);
+module.exports = mongoose.model("Rando", RandoSchema);

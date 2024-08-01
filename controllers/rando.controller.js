@@ -22,10 +22,11 @@ module.exports.getRandoById = async (req, res) => {
 module.exports.addRando = async (req, res) => {
   const newRando = new randoModel({
     destination: req.body.destination,
-    date: req.body.date, 
+    date: req.body.date,
     memberNumber: req.body.memberNumber,
     elevation: req.body.elevation,
     distance: req.body.distance,
+    images: req.body.images, 
   });
 
   try {
@@ -52,12 +53,13 @@ module.exports.updateRando = async (req, res) => {
       req.params.id,
       {
         destination: req.body.destination,
-        date: req.body.date, 
+        date: req.body.date,
         memberNumber: req.body.memberNumber,
         elevation: req.body.elevation,
         distance: req.body.distance,
+        images: req.body.images, 
       },
-      { new: true } 
+      { new: true }
     );
 
     if (!updatedRando) return res.status(404).send("No rando found");
