@@ -1,4 +1,5 @@
-
+const express = require("express");
+const auth = require('../auth/auth');  // Importez votre middleware d'authentification
 const {
   allRandos,
   addRando,
@@ -7,12 +8,15 @@ const {
   getRandoById,
 } = require("../controllers/rando.controller");
 
-const router = require("express").Router();
+const router = express.Router();
 
-router.get("/api/randos", allRandos);
-router.post("/api/randos", addRando);
-router.delete("/api/randos/:id", deleteRando);
-router.put("/api/randos/:id", updateRando);
-router.get("/api/randos/:id", getRandoById);
+
+router.get("/api/randos", allRandos); 
+router.get("/api/randos/:id", getRandoById); 
+
+
+router.post("/api/randos", auth, addRando); 
+router.delete("/api/randos/:id", auth, deleteRando); 
+router.put("/api/randos/:id", auth, updateRando); 
 
 module.exports = router;
