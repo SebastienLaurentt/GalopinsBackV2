@@ -13,9 +13,11 @@ app.use(cors());
 
 app.use("/", require("./routes/info.routes"));
 app.use("/", require("./routes/rando.routes"));
-app.use("/", require("./routes/imageUpload.routes")); // Add this line
+app.use("/", require("./routes/imageUpload.routes")); 
+app.use("/", require("./routes/user.routes")); 
 
-// Static files from the uploads directory
+
+
 app.use("/uploads", express.static("uploads"));
 
 app.listen(process.env.PORT, () => {
