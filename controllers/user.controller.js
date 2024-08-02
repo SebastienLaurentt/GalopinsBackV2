@@ -1,4 +1,5 @@
 
+const private_key = require('../auth/private_key');
 const userModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 
@@ -16,7 +17,11 @@ module.exports.login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid password' });
         }
 
-        const token = jwt.sign({ id: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign(
+            { userId: user.id },
+            private_key,
+            { expiresIn: '24h' }
+          );
         res.status(200).json({ token });
     } catch (error) {
         res.status(500).json({ message: error.message });
