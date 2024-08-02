@@ -22,14 +22,12 @@ const createAdminUser = async () => {
     const username = process.env.ADMIN_USERNAME || 'admin';
     const password = process.env.ADMIN_PASSWORD || 'adminpassword';
 
-    // Vérifier si l'utilisateur admin existe déjà
     const existingUser = await userModel.findOne({ username });
     if (existingUser) {
       console.log('Admin user already exists');
       return;
     }
 
-    // Créer et sauvegarder l'utilisateur admin
     const adminUser = new userModel({ username, password });
     await adminUser.save();
     console.log('Admin user created successfully');
