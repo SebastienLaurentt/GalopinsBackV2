@@ -20,7 +20,6 @@ module.exports.getRandoById = async (req, res) => {
 };
 
 module.exports.addRando = async (req, res) => {
-  console.log('addRando appelé'); 
   const newRando = new randoModel({
     destination: req.body.destination,
     date: req.body.date,

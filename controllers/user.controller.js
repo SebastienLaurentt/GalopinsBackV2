@@ -3,7 +3,6 @@ const private_key = require('../auth/private_key');
 const userModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 
-// Connexion
 module.exports.login = async (req, res) => {
     try {
         const { username, password } = req.body;
