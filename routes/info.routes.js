@@ -9,10 +9,10 @@ const auth = require("../auth/auth");
 const router = require("express").Router();
 
 router.get("/api/infos", allInfos);
-router.post("/api/infos", addInfo);
+router.get("/api/infos/:id",  getInfoById);
 
 router.delete("/api/infos/:id", auth, deleteInfo);
 router.put("/api/infos/:id", auth, updateInfo);
-router.get("/api/infos/:id", auth, getInfoById);
+router.post("/api/infos", auth, addInfo);
 
 module.exports = router;
