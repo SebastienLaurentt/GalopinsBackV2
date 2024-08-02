@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     console.log(message); // Log pour débogage
     return res.status(401).json({ message });
   }
-  
+
   const token = authorizationHeader.split(' ')[1];
   console.log('Token reçu:', token); // Log pour débogage
 

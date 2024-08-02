@@ -11,6 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
+// Middleware de logging
+app.use((req, res, next) => {
+  console.log(`Requête reçue: ${req.method} ${req.url}`);
+  next();
+});
+
 app.use("/", require("./routes/info.routes"));
 app.use("/", require("./routes/rando.routes"));
 app.use("/", require("./routes/imageUpload.routes")); 
